@@ -44,7 +44,7 @@ int checkPoint(const Point& P, const Triangle& t) {
     if ((fabs(v1) < EPSILON && isOnSegment(t.A, t.B, P)) ||
         (fabs(v2) < EPSILON && isOnSegment(t.B, t.C, P)) ||
         (fabs(v3) < EPSILON && isOnSegment(t.C, t.A, P))) {
-        return 2; // на межі
+        return 2;
     }
 
     bool has_pos = (v1 > EPSILON) || (v2 > EPSILON) || (v3 > EPSILON);
