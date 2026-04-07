@@ -7,23 +7,19 @@ struct Point {
 
 struct Triangle {
     Point A, B, C;
-    double area;
-    bool isDegenerate;
 };
 
 //Geometry
-Point createPoint(double x, double y);
-Triangle createTriangle(Point A, Point B, Point C);
-double calculateArea(Point A, Point B, Point C);
-double crossProduct(Point A, Point B, Point P);
-bool isOnSegment(Point A, Point B, Point P);
-int checkPoint(Point P, Triangle t);
+double calculateArea(const Point& A, const Point& B, const Point& C);
+double crossProduct(const Point& A, const Point& B, const Point& P);
+bool isOnSegment(const Point& A, const Point& B, const Point& P);
+int checkPoint(const Point& P, const Triangle& t);
 
 //User interaction
 Point inputPoint(const char* pointName);
 Triangle inputTriangle();
-void printResult(Point P, int result);
-void processDegenerate();
-void runPointCheckLoop(Triangle t);
+void printResult(const Point& P, int result);
+void processDegenerate(const Triangle& t);
+void runPointCheckLoop(const Triangle& t);
 
 #endif
