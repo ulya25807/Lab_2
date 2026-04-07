@@ -32,10 +32,6 @@ bool isOnSegment(const Point& A, const Point& B, const Point& P) {
 
 int checkPoint(const Point& P, const Triangle& t) {
     double area = calculateArea(t.A, t.B, t.C);
-    if (area < EPSILON) {
-        processDegenerate(t);
-        return -1;
-    }
 
     double v1 = crossProduct(t.A, t.B, P);
     double v2 = crossProduct(t.B, t.C, P);
@@ -44,7 +40,7 @@ int checkPoint(const Point& P, const Triangle& t) {
     if ((fabs(v1) < EPSILON && isOnSegment(t.A, t.B, P)) ||
         (fabs(v2) < EPSILON && isOnSegment(t.B, t.C, P)) ||
         (fabs(v3) < EPSILON && isOnSegment(t.C, t.A, P))) {
-        return 2; // на межі
+        return 2;
     }
 
     bool has_pos = (v1 > EPSILON) || (v2 > EPSILON) || (v3 > EPSILON);
@@ -67,7 +63,7 @@ Triangle inputTriangle() {
     Point B = inputPoint("B");
     Point C = inputPoint("C");
     if(calculateArea(A, B, C) < EPSILON) {
-        std::cout << "This triangle is degenerate. Further calculation is not possible.";
+        std::cout << "Triangle created succsesfully. It is degenerate.\n" << "Area: " << calculateArea(A, B, C) << std::endl;
     } else {
         std::cout << "Triangle created succsesfully. It is not degenerate.\n" << "Area: " << calculateArea(A, B, C) << std::endl;
     }
@@ -92,9 +88,6 @@ void printResult(const Point& P, int result) {
     }
 }
     
-void processDegenerate(const Triangle& t) {
-    std::cout << "This Ttriangle is degenerate. Further calculation is not possible." << std::endl;
-}
 
 void runPointCheckLoop(const Triangle& t) {
     char choice = 'y';

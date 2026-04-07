@@ -19,7 +19,6 @@ int checkPoint(const Point& P, const Triangle& t);
 Point inputPoint(const char* pointName);
 Triangle inputTriangle();
 void printResult(const Point& P, int result);
-void processDegenerate(const Triangle& t);
 void runPointCheckLoop(const Triangle& t);
 
 #endif
