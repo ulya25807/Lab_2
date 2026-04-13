@@ -10,15 +10,18 @@ struct Triangle {
 };
 
 //Geometry
+double distance(const Point& A, const Point& B);
 double calculateArea(const Point& A, const Point& B, const Point& C);
 double crossProduct(const Point& A, const Point& B, const Point& P);
 bool isOnSegment(const Point& A, const Point& B, const Point& P);
-int checkPoint(const Point& P, const Triangle& t);
+
+int checkPointHeron(const Point& P, const Triangle& t);
+int checkPointVector(const Point& P, const Triangle& t);
 
 //User interaction
 Point inputPoint(const char* pointName);
 Triangle inputTriangle();
-void printResult(const Point& P, int result);
+void printResult(const Point& P, const Triangle& t, int result);
 void runPointCheckLoop(const Triangle& t);
 
 #endif
